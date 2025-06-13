@@ -5,7 +5,6 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
@@ -24,17 +23,19 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            Surface(
-                modifier = Modifier.fillMaxSize(),
-                color = MaterialTheme.colorScheme.background
-            ) {
-                SuperheroesApp()
+            SuperheroesTheme {
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
+                    SuperheroesApp()
+                }
             }
         }
     }
 
     @Composable
-    fun SuperheroesApp(){
+    fun SuperheroesApp() {
         Scaffold(
             modifier = Modifier.fillMaxSize(),
             topBar = {
@@ -48,7 +49,7 @@ class MainActivity : ComponentActivity() {
 
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
-    fun TopAppBar(modifier: Modifier = Modifier){
+    fun TopAppBar(modifier: Modifier = Modifier) {
         CenterAlignedTopAppBar(
             title = {
                 Text(
@@ -62,7 +63,7 @@ class MainActivity : ComponentActivity() {
 
     @Preview(showBackground = true)
     @Composable
-    fun SuperheroesPreview(){
+    fun SuperheroesPreview() {
         SuperheroesTheme {
             SuperheroesApp()
         }
